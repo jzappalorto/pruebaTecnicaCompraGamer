@@ -5,6 +5,10 @@ VisualStudioVersion = 17.14.36705.20
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiBackend.API", "MiBackend.API\MiBackend.API.csproj", "{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiBackend.Data", "MiBackend.Data\MiBackend.Data.csproj", "{D6105C6B-2AC4-4285-A4B5-8461725EF700}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiBackend.Domain", "MiBackend.Domain\MiBackend.Domain.csproj", "{032F804C-B6CE-48FB-9A7D-33BA500F2355}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6105C6B-2AC4-4285-A4B5-8461725EF700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6105C6B-2AC4-4285-A4B5-8461725EF700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6105C6B-2AC4-4285-A4B5-8461725EF700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6105C6B-2AC4-4285-A4B5-8461725EF700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{032F804C-B6CE-48FB-9A7D-33BA500F2355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{032F804C-B6CE-48FB-9A7D-33BA500F2355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{032F804C-B6CE-48FB-9A7D-33BA500F2355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{032F804C-B6CE-48FB-9A7D-33BA500F2355}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
