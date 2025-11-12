@@ -1,0 +1,43 @@
+# Archivos y carpetas de compilación
+bin/
+obj/
+out/
+[Bb]uild/
+[Ll]og/
+
+# Archivos de usuario de Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.log
+
+# Configuraciones locales
+*.vs/
+.vscode/
+.vs/
+
+# Archivos de publicación
+publish/
+*.publishsettings
+
+# Archivos de dependencias
+*.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Archivos generados por dotnet
+*.dll
+*.exe
+*.pdb
+*.dbmdl
+
+# Otros
+Thumbs.db
+desktop.ini
