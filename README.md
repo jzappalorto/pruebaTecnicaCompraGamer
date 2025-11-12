@@ -7,7 +7,20 @@ docker de sql server
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=compraGamer432!" -p 1433:1433 --name sqlserver2022 -d mcr.microsoft.com/mssql/server:2022-latest
 Instalar mssql o cualquier otro cliente
 https://aka.ms/ssms/22/release/vs_SSMS.exe
-3) backup preventivo
+backup preventivo
+crear carpeta SQL_DB en C: para backups del snapshot del docker completo
+si se usa otro volumen, cambiarlo en el archivo de backup y de restore
+-------------------------------------------------------------------------------
+BACKEND
+-------------------------------------------------------------------------------
+link local desde el depurador de VS 2022
+http://localhost:5000/swagger/index.html
+link desde el docker local del equipo de desarrollo
+http://localhost:8080/
+script de creación del docker de backend desde el Visual 2022,
+docker build -t mibackend .
+docker run -d -p 8080:8080 --name mibackend mibackend
+
 
 
 
