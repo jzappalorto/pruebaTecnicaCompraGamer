@@ -17,6 +17,8 @@ builder.Services.AddDbContext<MiBackendContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IChicoService, ChicoService>();
+builder.Services.AddScoped<IChoferService, ChoferService>();
+builder.Services.AddScoped<IMicroService, MicroService>();
 
 var app = builder.Build();
 
