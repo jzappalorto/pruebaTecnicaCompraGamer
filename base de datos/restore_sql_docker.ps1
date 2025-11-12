@@ -1,6 +1,6 @@
 $backupPath = "C:\SQL_DB\sqlserver2022_backup.tar"
 $imageName = "sqlserver2022_backup"
-$restoredContainerName = "sqlserver2022_restored"
+$restoredContainerName = "sqlserver2022"
 docker load -i $backupPath
 $existingContainer = docker ps -a --filter "name=$restoredContainerName" -q
 if ($existingContainer) {
