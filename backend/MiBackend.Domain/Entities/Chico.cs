@@ -1,10 +1,11 @@
-﻿
+﻿using MiBackend.Domain.Entities.EntityBase;
+
 namespace MiBackend.Domain.Entities
 {
-    public class Chico
+    public class Chico:PersonaBase
     {
-        public int Id { get; set; }
-        public required string DNI { get; set; }
-        public required string Nombre { get; set; }
+        // FK hacia Micro (muchos Chico -> 1 Micro)
+        public int MicroId { get; set; }
+        public Micro Micro { get; set; } = null!;
     }
 }
