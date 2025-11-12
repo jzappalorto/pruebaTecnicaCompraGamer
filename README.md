@@ -18,8 +18,14 @@ http://localhost:5000/swagger/index.html
 link desde el docker local del equipo de desarrollo
 http://localhost:8080/
 script de creación del docker de backend desde el Visual 2022,
-docker build -t mibackend .
-docker run -d -p 8080:8080 --name mibackend mibackend
+docker build -f Dockerfile -t mibackend.api ..
+docker run -d -p 8080:8080 --name mibackend mibackend.api
+------------------------------------------------------
+Migracion de la base de datos
+dotnet ef migrations add Inicial --startup-project ../MiBackend.API
+dotnet ef database update --startup-project ../MiBackend.API
+
+
 
 
 
