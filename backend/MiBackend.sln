@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36705.20
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiBackend.API", "MiBackend.API.csproj", "{2BB5F340-3C36-68C8-01FE-007E2E9A5D2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiBackend.API", "MiBackend.API\MiBackend.API.csproj", "{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2BB5F340-3C36-68C8-01FE-007E2E9A5D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BB5F340-3C36-68C8-01FE-007E2E9A5D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BB5F340-3C36-68C8-01FE-007E2E9A5D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BB5F340-3C36-68C8-01FE-007E2E9A5D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE521AB-DD7C-2926-97B4-4D65B3FDCDFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
