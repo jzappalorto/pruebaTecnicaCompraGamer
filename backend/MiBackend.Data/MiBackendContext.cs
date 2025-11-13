@@ -26,6 +26,9 @@ namespace MiBackend.Data
             modelBuilder.Entity<Chico>()
                 .Property(c => c.Nombre)
                 .IsRequired();
+            modelBuilder.Entity<Chico>()
+                .HasIndex(m => m.DNI)
+                .IsUnique();
             //--------------------------------------------------------------
             //entidad Chofer
             modelBuilder.Entity<Chofer>()
@@ -35,21 +38,26 @@ namespace MiBackend.Data
             modelBuilder.Entity<Chofer>()
                 .Property(c => c.Nombre)
                 .IsRequired();
+            modelBuilder.Entity<Chofer>()
+                .HasIndex(m => m.DNI)
+                .IsUnique();
             //-------------------------------------------------------------
             //entidad Micro
             modelBuilder.Entity<Micro>()
                 .Property(c => c.Patente)
                 .IsRequired();
 
-            modelBuilder.Entity<Micro>()
-                .Property(c => c.Patente)
-                .IsRequired();
             //-------------------------------------------------------------
             modelBuilder.Entity<Micro>()
                 .HasOne(m => m.Chofer)
                 .WithOne(c => c.Micro)
                 .HasForeignKey<Chofer>(c => c.MicroId)
                 .IsRequired();
+
+            // índice único en Patente (garantiza restricción en la base de datos)
+            modelBuilder.Entity<Micro>()
+                .HasIndex(m => m.Patente)
+                .IsUnique();
         }
     }
 }

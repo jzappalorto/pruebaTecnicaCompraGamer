@@ -22,6 +22,13 @@ builder.Services.AddScoped<IMicroService, MicroService>();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<MiBackendContext>();
+    context.Database.Migrate();
+}
+
+
 // Middleware
 if (app.Environment.IsDevelopment())
 {
