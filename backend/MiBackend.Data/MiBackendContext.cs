@@ -48,11 +48,13 @@ namespace MiBackend.Data
                 .IsRequired();
 
             //-------------------------------------------------------------
+            // Relación 1:1 entre Micro y Chofer — FK opcional en Chofer.
             modelBuilder.Entity<Micro>()
                 .HasOne(m => m.Chofer)
                 .WithOne(c => c.Micro)
                 .HasForeignKey<Chofer>(c => c.MicroId)
-                .IsRequired();
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
 
             // índice único en Patente (garantiza restricción en la base de datos)
             modelBuilder.Entity<Micro>()

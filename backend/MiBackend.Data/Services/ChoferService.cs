@@ -44,14 +44,7 @@ namespace MiBackend.Data.Services
 
         public async Task<Chofer> CreateAsync(Chofer chofer)
         {
-            // Si se quiere asignar a un micro, validar existencia y que no tenga chofer ya
-            if (chofer.MicroId != 0)
-            {
-                var micro = await _db.Micros.Include(m => m.Chofer).FirstOrDefaultAsync(m => m.Id == chofer.MicroId);
-                if (micro == null) throw new ArgumentException($"No existe Micro con Id={chofer.MicroId}");
-                if (micro.Chofer != null) throw new InvalidOperationException($"El Micro Id={micro.Id} ya tiene un Chofer asignado.");
-            }
-
+            // Ya no se valida Micro aquí; la BD aplicará las restricciones pertinentes.
             _db.Choferes.Add(chofer);
             await _db.SaveChangesAsync();
             await _db.Entry(chofer).Reference(c => c.Micro).LoadAsync();
