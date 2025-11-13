@@ -1,4 +1,5 @@
-﻿using MiBackend.Domain.Entities;
+﻿using MiBackend.API.DTO;
+using MiBackend.Domain.Entities;
 using MiBackend.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,8 +41,15 @@ namespace MiBackend.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Chofer>> Create([FromBody] Chofer chofer)
+        public async Task<ActionResult<Chofer>> Create([FromBody] ChoferCreateDto dto)
         {
+            var chofer = new Chofer
+            {
+                DNI = dto.DNI,
+                Nombre = dto.Nombre,
+                MicroId = dto.MicroId
+            };
+
             var created = await _choferService.CreateAsync(chofer);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }

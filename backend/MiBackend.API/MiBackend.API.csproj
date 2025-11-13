@@ -18,4 +18,9 @@
     <ProjectReference Include="..\MiBackend.Data\MiBackend.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTO\Chicos\" />
+    <Folder Include="DTO\Micros\" />
+  </ItemGroup>
+
 </Project>
