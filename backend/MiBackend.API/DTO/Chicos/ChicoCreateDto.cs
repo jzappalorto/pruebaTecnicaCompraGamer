@@ -1,8 +1,6 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace MiBackend.API.DTO
+﻿namespace MiBackend.API.DTO.Chicos
 {
-    public class ChoferUpdateDto
+    public class ChicoCreateDto
     {
         public required string DNI { get; set; }
         public required string Nombre { get; set; }

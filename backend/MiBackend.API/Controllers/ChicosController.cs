@@ -1,8 +1,10 @@
 ﻿using MiBackend.Data;
 using MiBackend.Domain.Entities;
 using MiBackend.Domain.Interfaces;
+using MiBackend.API.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MiBackend.API.DTO.Chicos;
 
 namespace MiBackend.API.Controllers
 {
@@ -18,40 +20,56 @@ namespace MiBackend.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Chico>>> GetAll()
+        public async Task<ActionResult<IEnumerable<ChicoReadDto>>> GetAll()
         {
             var list = await _chicoService.GetAllAsync();
-            return Ok(list);
+            var dtos = list.Select(ToReadDto);
+            return Ok(dtos);
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Chico?>> GetById(int id)
+        public async Task<ActionResult<ChicoReadDto?>> GetById(int id)
         {
             var chico = await _chicoService.GetByIdAsync(id);
             if (chico == null) return NotFound();
-            return Ok(chico);
+            return Ok(ToReadDto(chico));
         }
 
         [HttpGet("micro/{microId:int}")]
-        public async Task<ActionResult<IEnumerable<Chico>>> GetByMicro(int microId)
+        public async Task<ActionResult<IEnumerable<ChicoReadDto>>> GetByMicro(int microId)
         {
             var list = await _chicoService.GetAllByMicroAsync(microId);
-            return Ok(list);
+            var dtos = list.Select(ToReadDto);
+            return Ok(dtos);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Chico>> Create([FromBody] Chico chico)
+        public async Task<ActionResult<ChicoReadDto>> Create([FromBody] ChicoCreateDto dto)
         {
+            var chico = new Chico
+            {
+                DNI = dto.DNI,
+                Nombre = dto.Nombre,
+                MicroId = dto.MicroId
+            };
+
             var created = await _chicoService.CreateAsync(chico);
-            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+            return CreatedAtAction(nameof(GetById), new { id = created.Id }, ToReadDto(created));
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<Chico?>> Update(int id, [FromBody] Chico chico)
+        public async Task<ActionResult<ChicoReadDto?>> Update(int id, [FromBody] ChicoUpdateDto dto)
         {
+            var chico = new Chico
+            {
+                DNI = dto.DNI,
+                Nombre = dto.Nombre,
+                MicroId = dto.MicroId
+            };
+
             var updated = await _chicoService.UpdateAsync(id, chico);
             if (updated == null) return NotFound();
-            return Ok(updated);
+            return Ok(ToReadDto(updated));
         }
 
         [HttpDelete("{id:int}")]
@@ -68,6 +86,17 @@ namespace MiBackend.API.Controllers
             var ok = await _chicoService.AssignToMicroAsync(id, microId);
             if (!ok) return BadRequest(new { message = "Asignación fallida. Comprueba ids." });
             return NoContent();
+        }
+
+        private static ChicoReadDto ToReadDto(Chico c)
+        {
+            return new ChicoReadDto
+            {
+                Id = c.Id,
+                DNI = c.DNI,
+                Nombre = c.Nombre,
+                MicroId = c.MicroId
+            };
         }
     }
 }
