@@ -24,6 +24,12 @@ docker run -d -p 8080:8080 --name mibackend mibackend.api
 Migracion de la base de datos, DESDE EL PROYECTO DE DATA
 dotnet ef migrations add Inicial --startup-project ../MiBackend.API
 dotnet ef database update --startup-project ../MiBackend.API
+4)FRONTEND
+el puerto 8080 es del backend del docker, 
+el puerto 5000 es el que levanta el VS
+http://localhost:8081/
+ese es el URL en el que queda la aplicacion totalmente dockerizada
+
 
 
 
