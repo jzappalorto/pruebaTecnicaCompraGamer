@@ -34,7 +34,7 @@ esta instrucción compila el proyecto de front, crea un contenedor capaz de corr
 docker compose up --build  
 
 
-
+////Cambios del FIX_002
 
 
 
