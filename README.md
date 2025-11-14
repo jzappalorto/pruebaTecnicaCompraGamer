@@ -36,6 +36,8 @@ docker compose up --build
 
 
 ///Aqui implementamos el feature_002
+//Implementacion de un feature_001
+//Aqui, finalmente, implementamos una solucion que contenga los 2 features, que el git no pudo resolver automaticamente
 
 
 
