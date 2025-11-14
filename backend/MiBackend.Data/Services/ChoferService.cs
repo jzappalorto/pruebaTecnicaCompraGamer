@@ -100,5 +100,15 @@ namespace MiBackend.Data.Services
             await _db.SaveChangesAsync();
             return true;
         }
+
+        public async Task<IEnumerable<Chofer>> GetAllByMicroAsync(int microId)
+        {
+
+            return await _db.Choferes
+        .Where(c => c.MicroId == microId)
+        .Include(c => c.Micro)
+        .AsNoTracking()
+        .ToListAsync();
+        }
     }
 }

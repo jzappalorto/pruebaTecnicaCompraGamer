@@ -13,5 +13,6 @@ namespace MiBackend.Domain.Interfaces
 
         // Asignar chofer a un micro (1:1). Devuelve false si el micro ya tiene chofer distinto.
         Task<bool> AssignToMicroAsync(int choferId, int microId);
+        Task<IEnumerable<Chofer>> GetAllByMicroAsync(int microId);
     }
 }

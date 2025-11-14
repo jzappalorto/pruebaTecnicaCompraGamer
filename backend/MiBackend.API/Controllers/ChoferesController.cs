@@ -35,13 +35,13 @@ namespace MiBackend.API.Controllers
             return Ok(ToReadDto(chofer));
         }
 
-        //[HttpGet("micro/{microId:int}")]
-        //public async Task<ActionResult<IEnumerable<ChoferReadDto>>> GetByMicro(int microId)
-        //{
-        //    var list = await _choferService.GetAllByMicroAsync(microId);
-        //    var dtos = list.Select(ToReadDto);
-        //    return Ok(dtos);
-        //}
+        [HttpGet("micro/{microId:int}")]
+        public async Task<ActionResult<IEnumerable<ChoferReadDto>>> GetByMicro(int microId)
+        {
+            var list = await _choferService.GetAllByMicroAsync(microId);
+            var dtos = list.Select(ToReadDto);
+            return Ok(dtos);
+        }
 
         [HttpPost]
         public async Task<ActionResult<ChoferReadDto>> Create([FromBody] ChoferCreateDto dto)
