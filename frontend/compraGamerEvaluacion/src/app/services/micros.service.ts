@@ -3,6 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
+export interface Micro {
+  id: number;
+  patente: string;
+  marcaModelo: string;
+}
+
 export interface MicroReadDto {
   id: number;
   patente: string;

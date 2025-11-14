@@ -1,1 +1,50 @@
-<p>chicos works!</p>
+<h2>Gestión de Chicos</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div>
+    <label>DNI:</label>
+    <input formControlName="dni" />
+  </div>
+
+  <div>
+    <label>Nombre:</label>
+    <input formControlName="nombre" />
+  </div>
+
+  <div>
+    <label>Micro:</label>
+    <select formControlName="microId">
+      <option [ngValue]="null">Seleccione un micro</option>
+      <option *ngFor="let m of micros" [ngValue]="m.id">
+        {{ m.patente }} - {{ m.marcaModelo }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit">{{ editingId === null ? 'Crear' : 'Actualizar' }}</button>
+</form>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>DNI</th>
+      <th>Nombre</th>
+      <th>Micro</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of chicos">
+      <td>{{ c.dni }}</td>
+      <td>{{ c.nombre }}</td>
+      <td>{{ getMicroPatente(c.microId) }}</td>
+      <td>
+        <button (click)="edit(c)">Editar</button>
+        <button (click)="delete(c.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

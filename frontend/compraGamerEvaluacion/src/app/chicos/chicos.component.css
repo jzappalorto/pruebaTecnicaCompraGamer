@@ -1,0 +1,107 @@
+/* === FORMULARIO === */
+form {
+  background: #fafafa;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input, select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #0066cc;
+  color: white;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+button.cancel,
+button.eliminar {
+  background: #c0392b;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+/* === TABLA === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background: #e6e6e6;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background: #f7f7f7;
+}
+
+/* === MODAL === */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 999;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  box-shadow: 0px 0px 18px rgba(0,0,0,0.3);
+}
+
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.modal select {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 16px;
+}
+
+.modal-buttons {
+  text-align: right;
+}
+
+.modal-buttons button {
+  margin-left: 8px;
+}
