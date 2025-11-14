@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200") // la URL de tu frontend
+        policy.WithOrigins("http://localhost:4200", "http://localhost:8081", "http://localhost:8080") // la URL de tu frontend
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
