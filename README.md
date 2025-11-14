@@ -30,6 +30,9 @@ el puerto 5000 es el que levanta el VS
 http://localhost:8081/
 ese es el URL en el que queda la aplicacion totalmente dockerizada
 
+esta instrucción compila el proyecto de front, crea un contenedor capaz de correr angular y realiza el deploy
+docker compose up --build  
+
 
 
 
