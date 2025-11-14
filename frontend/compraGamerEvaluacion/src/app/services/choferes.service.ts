@@ -58,4 +58,9 @@ export class ChoferesService {
   getByMicro(microId: number): Observable<ChoferReadDto[]> {
   return this.http.get<ChoferReadDto[]>(`${environment.apiUrl}/choferes/micro/${microId}`);
 }
+
+getChicosByMicro(microId: number): Observable<any[]> {
+  return this.http.get<any[]>(`${environment.apiUrl}/chicos/micro/${microId}`);
+}
+
 }

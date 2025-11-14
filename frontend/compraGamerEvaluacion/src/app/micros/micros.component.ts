@@ -19,6 +19,9 @@ export class MicrosComponent implements OnInit {
   modalVisible = false;
   choferNombre: string = '';
 
+  modalChicosVisible = false;
+  chicosDelMicro: any[] = [];
+
 
   constructor(private service: MicrosService, private choferesService: ChoferesService, private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -26,6 +29,13 @@ export class MicrosComponent implements OnInit {
       marcaModelo: ['']
     });
   }
+  showChicos(microId: number): void {
+  this.choferesService.getChicosByMicro(microId).subscribe(chicos => {
+    this.chicosDelMicro = chicos;
+    this.modalChicosVisible = true;
+  });
+}
+
 
 showChofer(microId: number): void {
   this.choferesService.getByMicro(microId).subscribe(choferes => {

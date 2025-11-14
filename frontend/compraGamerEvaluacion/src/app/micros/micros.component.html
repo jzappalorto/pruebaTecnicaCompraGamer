@@ -31,6 +31,7 @@
         <button (click)="edit(m)">Editar</button>
         <button (click)="remove(m.id)">Eliminar</button>
         <button (click)="showChofer(m.id)">Chofer</button>
+        <button (click)="showChicos(m.id)">Chicos</button>
       </td>
     </tr>
   </tbody>
@@ -45,3 +46,21 @@
   </div>
 </div>
 
+<!-- MODAL CHICOS -->
+<div class="modal-backdrop" *ngIf="modalChicosVisible">
+  <div class="modal">
+    <h3>Chicos asignados</h3>
+
+    <div *ngIf="chicosDelMicro.length === 0">
+      <p>Sin chicos asignados</p>
+    </div>
+
+    <ul *ngIf="chicosDelMicro.length > 0">
+      <li *ngFor="let ch of chicosDelMicro">
+        {{ ch.nombre }} ({{ ch.dni }})
+      </li>
+    </ul>
+
+    <button (click)="modalChicosVisible = false">Cerrar</button>
+  </div>
+</div>
