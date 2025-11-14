@@ -47,4 +47,9 @@ export class MicrosService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+
+  getChoferByMicro(id: number): Observable<{ nombre: string }> {
+  return this.http.get<{ nombre: string }>(`${this.baseUrl}/${id}/chofer`);
+}
+
 }

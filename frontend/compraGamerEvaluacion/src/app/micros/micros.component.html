@@ -30,7 +30,18 @@
       <td>
         <button (click)="edit(m)">Editar</button>
         <button (click)="remove(m.id)">Eliminar</button>
+        <button (click)="showChofer(m.id)">Chofer</button>
       </td>
     </tr>
   </tbody>
 </table>
+
+<div class="modal-backdrop" *ngIf="modalVisible">
+  <div class="modal">
+    <h3>Chofer asignado</h3>
+    <p>{{ choferNombre }}</p>
+
+    <button (click)="modalVisible = false">Cerrar</button>
+  </div>
+</div>
+

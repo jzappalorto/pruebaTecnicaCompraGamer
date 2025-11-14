@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MicrosService, MicroReadDto, MicroCreateDto, MicroUpdateDto } from '../services/micros.service';
+import { ChoferesService } from '../services/choferes.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,13 +16,24 @@ export class MicrosComponent implements OnInit {
   micros: MicroReadDto[] = [];
   form: FormGroup;
   editingId: number | null = null;
+  modalVisible = false;
+  choferNombre: string = '';
 
-  constructor(private service: MicrosService, private fb: FormBuilder) {
+
+  constructor(private service: MicrosService, private choferesService: ChoferesService, private fb: FormBuilder) {
     this.form = this.fb.group({
       patente: [''],
       marcaModelo: ['']
     });
   }
+
+showChofer(microId: number): void {
+  this.choferesService.getByMicro(microId).subscribe(choferes => {
+    const primero = choferes[0];
+    this.choferNombre = primero ? primero.nombre : 'Sin chofer asignado';
+    this.modalVisible = true;
+  });
+}
 
   ngOnInit(): void {
     this.loadAll();

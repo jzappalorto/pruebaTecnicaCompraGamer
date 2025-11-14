@@ -1,1 +1,75 @@
 <p>choferes works!</p>
+<h2>Gestión de Choferes</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div>
+    <label>DNI:</label>
+    <input formControlName="dni" />
+  </div>
+
+  <div>
+    <label>Nombre:</label>
+    <input formControlName="nombre" />
+  </div>
+
+  <div>
+    <label>Micro asignado:</label>
+    <select formControlName="microId">
+      <option value="">(Sin micro)</option>
+      <option *ngFor="let m of micros" [value]="m.id">
+        {{ m.patente }} - {{ m.marcaModelo }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit">{{ editingId === null ? 'Crear' : 'Actualizar' }}</button>
+  <button type="button" *ngIf="editingId !== null" (click)="cancelEdit()">Cancelar</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>DNI</th>
+      <th>Nombre</th>
+      <th>Micro</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of choferes">
+      <td>{{ c.id }}</td>
+      <td>{{ c.dni }}</td>
+      <td>{{ c.nombre }}</td>
+      <td>{{ getMicroNombre(c.microId) }}</td>
+      <td>
+        <button (click)="edit(c)">Editar</button>
+        <button (click)="remove(c.id)">Eliminar</button>
+        <button (click)="openAssignModal(c)">Asignar micro</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal oscuro de fondo -->
+<div class="modal-backdrop" *ngIf="showAssignModal"></div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="showAssignModal">
+  <h3>Asignar micro a {{ selectedChofer?.nombre }}</h3>
+
+  <label>Micro:</label>
+  <select [(ngModel)]="selectedMicroId">
+  <option [ngValue]="null">(Sin micro)</option>
+  <option *ngFor="let m of micros" [ngValue]="m.id">
+    {{ m.patente }} - {{ m.marcaModelo }}
+  </option>
+</select>
+
+  <div class="modal-buttons">
+    <button (click)="confirmAssign()">Asignar</button>
+    <button class="cancel" (click)="closeAssignModal()">Cancelar</button>
+  </div>
+</div>
+
