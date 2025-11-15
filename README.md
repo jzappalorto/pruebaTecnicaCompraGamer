@@ -9,7 +9,7 @@ Instalar mssql o cualquier otro cliente
 https://aka.ms/ssms/22/release/vs_SSMS.exe
 backup preventivo
 crear carpeta SQL_DB en C: para backups del snapshot del docker completo
-si se usa otro volumen, cambiarlo en el archivo de backup y de restore
+si se usa otro volumen, cambiarlo en el archivo de backup y de restore(son .PS1)
 -------------------------------------------------------------------------------
 3) BACKEND
 -------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ script de creación del docker de backend desde el Visual 2022, DESDE EL PRYECTO
 docker build -f Dockerfile -t mibackend.api ..
 docker run -d -p 8080:8080 --name mibackend mibackend.api
 ------------------------------------------------------
-Migracion de la base de datos, DESDE EL PROYECTO DE DATA
+Migracion de la base de datos, DESDE EL PROYECTO DE DATA, es FIRTS CODE
 dotnet ef migrations add Inicial --startup-project ../MiBackend.API
 dotnet ef database update --startup-project ../MiBackend.API
 4)FRONTEND
